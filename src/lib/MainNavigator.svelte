@@ -1,6 +1,6 @@
 <div class="box has-text-centered columns m-2 is-half">
 	<a href="/dashboard" class="column">
-		<i class="fas fa-hand-holding-usd fa-3x" style="color:rgb(153, 196, 74)" />
+		<i class="fas fa-home fa-3x" style="color:rgb(153, 196, 74)" />
 	</a>
 	<a href="/account" class="column">
 		<i class="fas fa-user fa-3x" style="color:rgb(156, 70, 28)" />
