@@ -1,6 +1,7 @@
 import axios from "axios";
 import { categories, loggedInUser } from "../stores";
 import type { Category, Placemark } from "./placemark-types";
+import Placemarks from "$lib/placemarks/Placemarks.svelte";
 
 export const placemarkService = {
     baseUrl: "http://localhost:3000",
@@ -92,6 +93,22 @@ export const placemarkService = {
             return [];
         }
     
+    },
+
+    async getPlacemark(id: string): Promise<Placemark> {
+        try {
+            const response = await axios.get(`${this.baseUrl}/api/placemarks/${id}`);
+            return response.data;
+        } catch (error) {
+            const placemark: Placemark = {
+                name: "",
+                description: "",
+                latitude: 0,
+                longitude: 0,
+                categoryid: ""
+            }
+            return placemark;
+        }
     },
 
     async addPlacemark(placemark: Placemark): Promise<boolean> {
