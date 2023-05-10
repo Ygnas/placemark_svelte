@@ -1,7 +1,6 @@
 import axios from "axios";
 import { categories, loggedInUser } from "../stores";
 import type { Category, Placemark } from "./placemark-types";
-import Placemarks from "$lib/placemarks/Placemarks.svelte";
 
 export const placemarkService = {
     baseUrl: "http://localhost:3000",
