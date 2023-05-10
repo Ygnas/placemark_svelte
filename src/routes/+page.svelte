@@ -1,2 +1,12 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import Header from "$lib/Header.svelte";
+	import WelcomeNavigator from "../lib/WelcomeNavigator.svelte";
+</script>
+
+<Header>
+	<WelcomeNavigator />
+</Header>
+
+<div class="column box is-vcentered content">
+	<h1 class="title">Sign up or Log in...</h1>
+</div>
