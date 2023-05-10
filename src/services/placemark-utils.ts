@@ -1,6 +1,7 @@
 import { LatLng } from "leaflet";
-import type { Placemark } from "./placemark-types";
+import type { Category, Placemark } from "./placemark-types";
 import type { MarkerLayer, MarkerSpec } from "./markers";
+import type { ChartData } from "./charts";
 
 export function getMarkerLayer(placemarks: Placemark[]): MarkerLayer {
     const markerSpecs = Array<MarkerSpec>();
@@ -12,5 +13,27 @@ export function getMarkerLayer(placemarks: Placemark[]): MarkerLayer {
             popup: true
         });
     });
-    return { title: "donations", markerSpecs: markerSpecs };
+    return { title: "Placemarks", markerSpecs: markerSpecs };
+}
+
+export function generateByCategoryID(categories: Category[], placemarks: Placemark[]): ChartData {
+    const data: ChartData = {
+        labels: [],
+        datasets: [
+            {
+                values: []
+            }
+        ]
+    };
+    categories.forEach((category) => {
+        data.labels.push(category.title);
+        let total = 0;
+        placemarks.forEach((placemark) => {
+            if (placemark.categoryid === category._id) {
+                total += 1;
+            }
+        }),
+        data.datasets[0].values.push(total);
+    });
+    return data;
 }

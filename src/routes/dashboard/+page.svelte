@@ -10,6 +10,7 @@
 	import Placemarks from "$lib/placemarks/Placemarks.svelte";
 	import Map from "$lib/Map.svelte";
 	import { getMarkerLayer } from "../../services/placemark-utils";
+	import Charts from "$lib/Charts.svelte";
 
 	let categoryList: Category[] = [];
 	let placemarkList: Placemark[] = [];
@@ -35,6 +36,7 @@
 	<MainNavigator />
 </Header>
 
+<Charts />
 <div class="columns">
 	<div class="column has-text-centered">
 		<!-- <Placemarks {placemarkList} /> -->
