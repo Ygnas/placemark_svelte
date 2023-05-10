@@ -94,6 +94,22 @@ export const placemarkService = {
     
     },
 
+    async getPlacemark(id: string): Promise<Placemark> {
+        try {
+            const response = await axios.get(`${this.baseUrl}/api/placemarks/${id}`);
+            return response.data;
+        } catch (error) {
+            const placemark: Placemark = {
+                name: "",
+                description: "",
+                latitude: 0,
+                longitude: 0,
+                categoryid: ""
+            }
+            return placemark;
+        }
+    },
+
     async addPlacemark(placemark: Placemark): Promise<boolean> {
         try {
             const response = await axios.post(`${this.baseUrl}/api/categorys/${placemark.categoryid}/placemarks`, placemark);

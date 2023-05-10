@@ -26,7 +26,7 @@
 		</summary>
 		{#each placemarkList as placemark}
 			{#if category._id === placemark.categoryid}
-				<p>{placemark.name}</p>
+				<li><a href="/navigator/{placemark._id}">{placemark.name}</a></li>
 			{/if}
 		{/each}
 	</details>

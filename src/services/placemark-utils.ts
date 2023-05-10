@@ -16,6 +16,17 @@ export function getMarkerLayer(placemarks: Placemark[]): MarkerLayer {
     return { title: "Placemarks", markerSpecs: markerSpecs };
 }
 
+export function generateMarkerSpec(placemark: Placemark): MarkerSpec {
+    return <MarkerSpec>{
+        id: placemark.categoryid,
+        title: placemark.name,
+        location: {
+            lat: placemark.latitude,
+            lng: placemark.longitude
+        }
+    };
+}
+
 export function generateByCategoryID(categories: Category[], placemarks: Placemark[]): ChartData {
     const data: ChartData = {
         labels: [],

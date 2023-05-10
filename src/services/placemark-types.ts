@@ -25,4 +25,6 @@ export interface Placemark {
   latitude: number;
   longitude:number;
   categoryid:  string;
+  img?: string;
+  _id?: string;
 }
