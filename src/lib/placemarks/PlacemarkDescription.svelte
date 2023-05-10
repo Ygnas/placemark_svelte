@@ -5,9 +5,9 @@
 </script>
 
 <div class="column has-text-centered box">
-	{placemark.name}
+	{@html placemark.name}
 </div>
 <section>
 	<img src={placemark.img} alt="" />
-	{placemark.description}
+	{@html placemark.description}
 </section>

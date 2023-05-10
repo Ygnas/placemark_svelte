@@ -5,6 +5,6 @@
 {#if message}
 	<br />
 	<article class="notification is-warning">
-		{message}
+		{@html message}
 	</article>
 {/if}
