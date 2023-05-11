@@ -21,8 +21,16 @@
 		placemarkService.reload();
 		categoryList = await placemarkService.getCategories();
 		placemarkList = await placemarkService.getPlacemarks();
-		const placemarkMarkerLayer = getMarkerLayer(placemarkList);
-		map.populateLayer(placemarkMarkerLayer);
+		categoryList.map((category) => {
+			const placemarks: Placemark[] = [];
+			placemarkList.map((placemark) => {
+				if (category._id === placemark.categoryid) {
+					placemarks.push(placemark);
+				}
+			});
+			const placemarkMarkerLayer = getMarkerLayer(category.title, placemarks);
+			map.populateLayer(placemarkMarkerLayer);
+		});
 	});
 
 	const sub = categories.subscribe(async (category) => {
@@ -39,7 +47,6 @@
 <Charts />
 <div class="columns">
 	<div class="column has-text-centered">
-		<!-- <Placemarks {placemarkList} /> -->
 		<Map bind:this={map} />
 	</div>
 	<div class="column box has-text-centered is-one-quarter">

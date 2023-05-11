@@ -16,7 +16,6 @@ export interface Category {
   _id?: string;
   title: string;
   userid: string;
-  placemarks?: Placemark[];
 }
 
 export interface Placemark {
