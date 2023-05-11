@@ -3,9 +3,9 @@
 	import Notification from "$lib/Notification.svelte";
 	import { placemarkService } from "../../services/placemark-service";
 
-	let email = "";
-	let password = "";
-	let message = "";
+	let email: string = "";
+	let password: string = "";
+	let message: string = "";
 
 	async function login() {
 		console.log(`attemting to log in email: ${email} with password: ${password}`);

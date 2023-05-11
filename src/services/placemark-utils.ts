@@ -1,5 +1,5 @@
 import { LatLng } from "leaflet";
-import type { Category, Placemark } from "./placemark-types";
+import type { Category, Placemark, User } from "./placemark-types";
 import type { MarkerLayer, MarkerSpec } from "./markers";
 import type { ChartData } from "./charts";
 
@@ -46,5 +46,21 @@ export function generateByCategoryID(categories: Category[], placemarks: Placema
         }),
         data.datasets[0].values.push(total);
     });
+    return data;
+}
+
+export function generateByUser(users: User[]): ChartData {
+    const data: ChartData = {
+        labels: [],
+        datasets: [
+            {
+                values: []
+            }
+        ]
+    };
+    data.labels.push("Admins");
+    data.datasets[0].values.push(users.filter(user => user.admin).length);
+    data.labels.push("Users");
+    data.datasets[0].values.push(users.filter(user => !user.admin).length);
     return data;
 }

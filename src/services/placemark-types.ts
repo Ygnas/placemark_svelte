@@ -3,6 +3,7 @@ export interface User {
   lastName: string;
   email: string;
   password: string;
+  admin: boolean;
   _id: string;
 }
 
@@ -24,6 +25,6 @@ export interface Placemark {
   latitude: number;
   longitude:number;
   categoryid:  string;
-  img?: string;
+  img?: string[];
   _id?: string;
 }

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { categories, loggedInUser } from "../stores";
-import type { Category, Placemark } from "./placemark-types";
+import type { Category, Placemark, User } from "./placemark-types";
 
 export const placemarkService = {
     baseUrl: "http://localhost:3000",
@@ -62,6 +62,16 @@ export const placemarkService = {
                 });
                 axios.defaults.headers.common["Authorization"] = "Bearer " + savedUser.token;
             }
+        }
+    },
+
+    async getAllUsers(): Promise<User[]> {
+        try {
+            const response = await axios.get(`${this.baseUrl}/api/users/safe`);
+            return response.data;
+        } catch (error) {
+            console.log(error)
+            return [];
         }
     },
 
