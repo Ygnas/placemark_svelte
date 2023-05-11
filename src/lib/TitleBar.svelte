@@ -4,7 +4,7 @@
 	export let subTitle = "";
 </script>
 
-<div class="box has-text-centered columns m-2">
+<div class="box has-text-centered columns m-1">
 	<div class="column is-2">
 		<i class="fas fa-map-marked fa-3x" style="color:rgb(30, 144, 255)" />
 	</div>
