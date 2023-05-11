@@ -3,7 +3,7 @@ import type { Category, Placemark } from "./placemark-types";
 import type { MarkerLayer, MarkerSpec } from "./markers";
 import type { ChartData } from "./charts";
 
-export function getMarkerLayer(placemarks: Placemark[]): MarkerLayer {
+export function getMarkerLayer(title: string, placemarks: Placemark[]): MarkerLayer {
     const markerSpecs = Array<MarkerSpec>();
     placemarks.forEach((placemark) => {
         markerSpecs.push({
@@ -13,7 +13,7 @@ export function getMarkerLayer(placemarks: Placemark[]): MarkerLayer {
             popup: true
         });
     });
-    return { title: "Placemarks", markerSpecs: markerSpecs };
+    return { title, markerSpecs: markerSpecs };
 }
 
 export function generateMarkerSpec(placemark: Placemark): MarkerSpec {
