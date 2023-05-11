@@ -30,8 +30,8 @@
 
 <div class="columns">
 	<div class="column">
-		<Map id="terrain" height={40} bind:this={mapTerrain} />
-		<Map id="sat" activeLayer={"Satellite"} height={40} bind:this={mapSat} />
+		<Map id="terrain" height={39} bind:this={mapTerrain} />
+		<Map id="sat" activeLayer={"Satellite"} height={39} bind:this={mapSat} />
 	</div>
 	<div class="column" style="height: 83vh; overflow-y: auto">
 		<PlacemarkDescription placemark={data.placemark} />
