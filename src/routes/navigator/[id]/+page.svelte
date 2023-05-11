@@ -5,7 +5,6 @@
 	import { onMount } from "svelte";
 	import type { MarkerSpec } from "../../../services/markers";
 	import { generateMarkerSpec, getMarkerLayer } from "../../../services/placemark-utils";
-	import { placemarkService } from "../../../services/placemark-service";
 	import type { PageData } from "./$types";
 	import PlacemarkDescription from "$lib/placemarks/PlacemarkDescription.svelte";
 	export let data: PageData;

@@ -7,10 +7,8 @@
 	import { placemarkService } from "../../services/placemark-service";
 	import CategoryForm from "$lib/categories/CategoryForm.svelte";
 	import { categories } from "../../stores";
-	import Placemarks from "$lib/placemarks/Placemarks.svelte";
 	import Map from "$lib/Map.svelte";
 	import { getMarkerLayer } from "../../services/placemark-utils";
-	import Charts from "$lib/Charts.svelte";
 
 	let categoryList: Category[] = [];
 	let placemarkList: Placemark[] = [];
