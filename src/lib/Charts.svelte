@@ -7,6 +7,7 @@
 	import { generateByCategoryID } from "../services/placemark-utils";
 
 	let byCategoryID: ChartData;
+	export let charType: string = "bar";
 
 	onMount(async () => {
 		placemarkService.reload();
@@ -18,9 +19,9 @@
 	});
 </script>
 
-<div class="columns">
+<div class="columns px-1">
 	<div class="column box has-text-centered">
 		<h1 class="title is-4">Placemarks in categories</h1>
-		<Chart data={byCategoryID} type="bar" />
+		<Chart data={byCategoryID} type={charType} />
 	</div>
 </div>

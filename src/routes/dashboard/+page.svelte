@@ -44,7 +44,6 @@
 	<MainNavigator />
 </Header>
 
-<Charts />
 <div class="columns">
 	<div class="column has-text-centered">
 		<Map bind:this={map} />
