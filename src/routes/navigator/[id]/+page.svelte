@@ -7,6 +7,7 @@
 	import { generateMarkerSpec, getMarkerLayer } from "../../../services/placemark-utils";
 	import type { PageData } from "./$types";
 	import PlacemarkDescription from "$lib/placemarks/PlacemarkDescription.svelte";
+	import Weather from "$lib/Weather.svelte";
 	export let data: PageData;
 
 	let mapTerrain: Map;
@@ -27,6 +28,7 @@
 	<MainNavigator />
 </Header>
 
+<Weather placemark={data.placemark} />
 <div class="columns">
 	<div class="column">
 		<Map id="terrain" height={39} bind:this={mapTerrain} />
