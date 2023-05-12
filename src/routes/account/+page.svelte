@@ -7,8 +7,6 @@
 
 	let selectedData = ChartDataType.ByCategories;
 	let selectedType: string;
-
-	let chart: Charts;
 </script>
 
 <Header>
@@ -53,7 +51,7 @@
 		<div class="column">
 			{#key selectedData}
 				{#key selectedType}
-					<Charts bind:this={chart} chartDataType={selectedData} title={selectedData ? "User types" : "Placemarks in categories"} charType={selectedType} />
+					<Charts chartDataType={selectedData} title={selectedData ? "User types" : "Placemarks in categories"} charType={selectedType} />
 				{/key}
 			{/key}
 		</div>
