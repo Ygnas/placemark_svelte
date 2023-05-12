@@ -8,7 +8,6 @@
 	let placemarkList: Placemark[] = [];
 	onMount(async () => {
 		placemarkList = await placemarkService.getPlacemarks();
-		console.log(placemarkList);
 	});
 </script>
 

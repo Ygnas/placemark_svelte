@@ -22,7 +22,8 @@ export const weather = {
                 temp_max: 0,
                 temp_min: 0
             },
-            icon: ""
+            icon: "",
+            list: []
         }
         return weather;
     }
