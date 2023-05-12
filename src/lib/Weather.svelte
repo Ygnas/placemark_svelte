@@ -2,7 +2,6 @@
 	import { onMount } from "svelte";
 	import type { Placemark, Weather } from "../services/placemark-types";
 	import { weather } from "../services/weather";
-	import Charts from "./Charts.svelte";
 
 	export let placemark: Placemark;
 	let weatherData: Weather = {
