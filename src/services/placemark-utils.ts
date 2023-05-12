@@ -76,7 +76,6 @@ export function generateByTemperature(weather: Weather): ChartData {
     };
     const weatherSlice = weather.list.slice(0, 5);
     weatherSlice.forEach((temp) => {
-        console.log(temp);
         data.labels.push(temp["dt_txt"]);
         data.datasets[0].values.push(temp["main"]["temp"]);
     });
