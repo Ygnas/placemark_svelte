@@ -7,7 +7,7 @@
 
 	export let placemark: Placemark;
 	let selectedType: string = "bar";
-
+	let tempIcon: string = "";
 	let weatherData: Weather = {
 		name: "Town name",
 		sunrise: 0,
@@ -26,7 +26,12 @@
 
 	onMount(async () => {
 		weatherData = await weather.getWeatherForPlacemark(placemark);
-		console.log(weatherData);
+		const weatherSlice = weatherData.list.slice(0, 3);
+		if (weatherSlice[0]["main"]["temp"] > weatherSlice[1]["main"]["temp"] && weatherSlice[1]["main"]["temp"] > weatherSlice[2]["main"]["temp"]) {
+			tempIcon = "fas fa-chevron-down";
+		} else if (weatherSlice[0]["main"]["temp"] < weatherSlice[1]["main"]["temp"] && weatherSlice[1]["main"]["temp"] < weatherSlice[2]["main"]["temp"]) {
+			tempIcon = "fas fa-chevron-up";
+		}
 	});
 </script>
 
@@ -47,7 +52,7 @@
 				</article>
 			</div>
 			<div class="tile is-parent">
-				<article class="tile is-child notification is-info">
+				<article class="tile is-child notification is-info" style="background-image: url(/partlysunny_day.webp);background-size:cover">
 					<div class="columns">
 						<div class="column is-10">
 							<div class="content">
@@ -57,6 +62,7 @@
 										<div class="content">Temp: {weatherData?.current.temp} C</div>
 										<div class="content">Temp min: {weatherData?.current.temp_min} C</div>
 										<div class="content">Humidity: {weatherData?.current.humidity}</div>
+										<div class="content">Temp trends: <i class={tempIcon} style="color:rgb(25, 255, 25)" /></div>
 									</div>
 									<div class="column">
 										<div class="content">Feels like: {weatherData?.current.feels_like} C</div>
