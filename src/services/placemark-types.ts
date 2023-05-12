@@ -28,3 +28,18 @@ export interface Placemark {
   img?: string[];
   _id?: string;
 }
+
+export interface Weather {
+  name: string,
+  sunrise:  number,
+  sunset: number,
+  icon: string,
+  current: {
+    feels_like: number,
+    humidity: number,
+    pressure: number,
+    temp: number,
+    temp_max: number,
+    temp_min: number,
+  }
+}
