@@ -2,10 +2,14 @@
 	import { onMount } from "svelte";
 	import type { Placemark, Weather } from "../services/placemark-types";
 	import { weather } from "../services/weather";
+	import Charts from "./Charts.svelte";
+	import { ChartDataType } from "../services/charts";
 
 	export let placemark: Placemark;
+	let selectedType: string = "bar";
+
 	let weatherData: Weather = {
-		name: "",
+		name: "Town name",
 		sunrise: 0,
 		sunset: 0,
 		icon: "https://openweathermap.org/img/wn/03d.png",
@@ -16,7 +20,8 @@
 			temp: 0,
 			temp_max: 0,
 			temp_min: 0
-		}
+		},
+		list: []
 	};
 
 	onMount(async () => {
@@ -33,7 +38,11 @@
 					<p class="title">{weatherData?.name}</p>
 					<p class="subtitle" />
 					<div class="content">
-						<div class="column" />
+						<div class="column">
+							{#key weatherData.name}
+								<Charts charType={selectedType} title="Temperature projection" chartDataType={ChartDataType.ByTemperature} {weatherData} />
+							{/key}
+						</div>
 					</div>
 				</article>
 			</div>
