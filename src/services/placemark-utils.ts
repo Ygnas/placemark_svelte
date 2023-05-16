@@ -8,7 +8,7 @@ export function getMarkerLayer(title: string, placemarks: Placemark[]): MarkerLa
     placemarks.forEach((placemark) => {
         markerSpecs.push({
             id: placemark.categoryid,
-            title: placemark.name,
+            title: `<a href='/navigator/${placemark._id}'>${placemark.name} <small>(click for details}</small></a>`,
             location: new LatLng(placemark.latitude, placemark.longitude),
             popup: true
         });
