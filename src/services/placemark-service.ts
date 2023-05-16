@@ -25,6 +25,26 @@ export const placemarkService = {
         }
     },
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async google(response: any, user: any): Promise<boolean> {
+        try {
+            axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
+            if (response.data.success) {
+                loggedInUser.set({
+                    email: user.email,
+                    token: response.data.token,
+                    _id: response.data.id
+                });
+                localStorage.placemark = JSON.stringify({ email: user.email, token: response.data.token, _id: response.data.id });
+                return true;
+            }
+            return false;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    },
+
     async logout() {
         loggedInUser.set({
             email: "",
