@@ -1,3 +1,4 @@
+<!-- Not used, but working -->
 <script lang="ts">
 	import Notification from "$lib/Notification.svelte";
 	import { placemarkService } from "../../services/placemark-service";
@@ -16,7 +17,12 @@
 			message = "Could not add new Category";
 			return;
 		}
-		const success = await placemarkService.addCategory(category);
+		try {
+			await placemarkService.addCategory(category);
+		} catch {
+			message = "Could not add new Category";
+		}
+
 		message = "";
 		category.title = "";
 	}

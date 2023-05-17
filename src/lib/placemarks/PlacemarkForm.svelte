@@ -1,20 +1,17 @@
+<!-- Not used, not finished -->
 <script lang="ts">
 	import { placemarkService } from "../../services/placemark-service";
-	import type { Placemark } from "../../services/placemark-types";
+	import type { Category, Placemark } from "../../services/placemark-types";
 
 	let placemark: Placemark = {
 		name: "",
 		description: "",
 		latitude: 0,
 		longitude: 0,
-		categoryid: "645a4b029d8473d1ef5a6009"
+		categoryid: ""
 	};
 
 	async function addPlacemark() {
-		// if (!category.title || !category.userid) {
-		// 	console.log("No title or Unauthorized");
-		// 	return;
-		// }
 		const success = await placemarkService.addPlacemark(placemark);
 	}
 </script>
