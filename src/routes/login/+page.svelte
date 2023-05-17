@@ -3,7 +3,7 @@
 	import Header from "$lib/Header.svelte";
 	import WelcomeNavigator from "$lib/WelcomeNavigator.svelte";
 	import LoginForm from "./LoginForm.svelte";
-	import { initialize, signIn, signOut } from "svelte-google-auth/client";
+	import { initialize, signIn } from "svelte-google-auth/client";
 	import { invalidateAll } from "$app/navigation";
 	import type { PageData } from "../$types";
 	import { placemarkService } from "../../services/placemark-service";
