@@ -3,7 +3,7 @@ import { categories, loggedInUser } from "../stores";
 import type { Category, Placemark, User } from "./placemark-types";
 
 export const placemarkService = {
-    baseUrl: "http://localhost:3000",
+    baseUrl: "https://placemark-hbg9.onrender.com",
 
     async login(email: string, password: string): Promise<boolean> {
         try {

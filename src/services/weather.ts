@@ -3,7 +3,7 @@ import axios from "axios";
 import type { Placemark, Weather } from "./placemark-types";
 
 export const weather = {
-    baseUrl: "http://localhost:3000",
+    baseUrl: "https://placemark-hbg9.onrender.com",
 
   async getWeatherForPlacemark(placemark: Placemark): Promise<Weather> {
     try {
