@@ -1,6 +1,12 @@
 <script lang="ts">
+	import { goto } from "$app/navigation";
 	import Header from "$lib/Header.svelte";
 	import WelcomeNavigator from "../lib/WelcomeNavigator.svelte";
+	import { loggedInUser } from "../stores";
+
+	if ($loggedInUser?.email) {
+		goto("/dashboard");
+	}
 </script>
 
 <Header>

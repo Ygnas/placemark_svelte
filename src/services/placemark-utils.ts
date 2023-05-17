@@ -1,5 +1,5 @@
 import { LatLng } from "leaflet";
-import type { Category, Placemark, User } from "./placemark-types";
+import type { Category, Placemark, User, Weather } from "./placemark-types";
 import type { MarkerLayer, MarkerSpec } from "./markers";
 import type { ChartData } from "./charts";
 
@@ -8,7 +8,7 @@ export function getMarkerLayer(title: string, placemarks: Placemark[]): MarkerLa
     placemarks.forEach((placemark) => {
         markerSpecs.push({
             id: placemark.categoryid,
-            title: placemark.name,
+            title: `<a href='/navigator/${placemark._id}'>${placemark.name} <small>(click for details}</small></a>`,
             location: new LatLng(placemark.latitude, placemark.longitude),
             popup: true
         });
@@ -62,5 +62,22 @@ export function generateByUser(users: User[]): ChartData {
     data.datasets[0].values.push(users.filter(user => user.admin).length);
     data.labels.push("Users");
     data.datasets[0].values.push(users.filter(user => !user.admin).length);
+    return data;
+}
+
+export function generateByTemperature(weather: Weather): ChartData {
+    const data: ChartData = {
+        labels: [],
+        datasets: [
+            {
+                values: []
+            }
+        ]
+    };
+    const weatherSlice = weather.list.slice(0, 5);
+    weatherSlice.forEach((temp) => {
+        data.labels.push(temp["dt_txt"]);
+        data.datasets[0].values.push(temp["main"]["temp"]);
+    });
     return data;
 }

@@ -2,10 +2,9 @@
 	import Categories from "$lib/categories/Categories.svelte";
 	import Header from "$lib/Header.svelte";
 	import MainNavigator from "$lib/MainNavigator.svelte";
-	import { onDestroy, onMount } from "svelte";
+	import { onMount } from "svelte";
 	import type { Category, Placemark } from "../../services/placemark-types";
 	import { placemarkService } from "../../services/placemark-service";
-	import CategoryForm from "$lib/categories/CategoryForm.svelte";
 	import { categories } from "../../stores";
 	import Map from "$lib/Map.svelte";
 	import { getMarkerLayer } from "../../services/placemark-utils";
@@ -34,8 +33,6 @@
 	const sub = categories.subscribe(async (category) => {
 		categoryList = await placemarkService.getCategories();
 	});
-
-	onDestroy(sub);
 </script>
 
 <Header>
@@ -47,7 +44,6 @@
 		<Map bind:this={map} />
 	</div>
 	<div class="column box has-text-centered is-one-quarter">
-		<CategoryForm />
 		<Categories {categoryList} {placemarkList} />
 	</div>
 </div>

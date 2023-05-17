@@ -6,4 +6,5 @@ export interface ChartData {
 export enum ChartDataType {
   ByCategories,
   ByUsers,
+  ByTemperature,
 }
