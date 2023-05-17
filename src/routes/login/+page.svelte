@@ -35,7 +35,7 @@
 	<div class="column">
 		<div class="box">
 			<h1 class="title">Login</h1>
-			<div class="column"><button on:click={() => google()}>Sign In with google</button></div>
+			<div class="column"><button class="button is-link is-light" on:click={() => google()}>Sign In with google</button></div>
 			<LoginForm />
 		</div>
 	</div>
