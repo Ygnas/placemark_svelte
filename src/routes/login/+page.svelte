@@ -16,7 +16,7 @@
 		if (!data.auth.user) {
 			await signIn();
 		}
-		let response = await axios.post("http://localhost:3000/api/users/authenticate/google", data.auth.user);
+		let response = await axios.post("https://placemark-hbg9.onrender.com/api/users/authenticate/google", data.auth.user);
 		let success = await placemarkService.google(response, data.auth.user);
 		if (success) {
 			goto("/dashboard");
